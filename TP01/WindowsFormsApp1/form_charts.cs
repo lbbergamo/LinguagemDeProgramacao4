@@ -12,6 +12,9 @@ namespace WindowsFormsApp1
 {
     public partial class form_charts : Form
     {
+        /*
+         * é realizado a separação da funções
+         */
         public form_charts(bool function)
         {
             InitializeComponent();
@@ -26,7 +29,6 @@ namespace WindowsFormsApp1
                 label_y.Hide();
                 btn_calc.Hide();
                 title_calc.Text = "Grafico de Vendas";
-
                 VendaBLL.conecta();
                 if (Erro.getErro())
                 {
@@ -34,16 +36,14 @@ namespace WindowsFormsApp1
                     Application.Exit();
                 }
             }
-
         }
-
   
-
         private void chart_Click(object sender, EventArgs e)
         {
-      
         }
-
+        /*
+         * Botao de calculo 
+         */
         private void btn_calc_Click(object sender, EventArgs e)
         {
             float x = float.Parse(tb_x.Text);
@@ -54,12 +54,17 @@ namespace WindowsFormsApp1
                 chart.Series[0].Points.AddXY(i+100, calc.calc(x,y,i));
             }
         }
-
+        /*
+         * Botao feito para limpar o chart
+         */
         private void clean_Click(object sender, EventArgs e)
         {
             chart.Series[0].Points.Clear();
         }
 
+        /*
+         * Botao para importar os dados 
+         */
         private void btn_import_Click(object sender, EventArgs e)
         {
             VendaBLL.getProximo();
@@ -69,10 +74,8 @@ namespace WindowsFormsApp1
                 VendaBLL.getProximo();
             }
         }
-
         private void form_charts_Load(object sender, EventArgs e)
         {
-
         }
 
         private void form_charts_Deactivate(object sender, EventArgs e)
