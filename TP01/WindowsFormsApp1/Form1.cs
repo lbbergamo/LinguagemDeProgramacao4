@@ -16,12 +16,9 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-
         }
-
         /**
          * Botao para função
          */
@@ -38,6 +35,9 @@ namespace WindowsFormsApp1
             var form2 = new form_charts(false);
             form2.Show();
 
+        }
+        private void form_select_Load(object sender, EventArgs e)
+        {
         }
     }
 }
